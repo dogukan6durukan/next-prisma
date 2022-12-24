@@ -1,0 +1,32 @@
+.warningWrapper {
+    padding: 2rem;
+    width: 50%;
+    margin: 1rem auto;
+    border-radius: 4px;
+}
+
+.warningTitle {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: .8rem;
+    padding-bottom: 1rem;
+}
+
+.informative {
+    background-color: #6198f0;
+    color: #fff;
+}
+
+.danger {
+    background-color:  #dc3545;
+    color: #fff;
+}
+
+.warning {
+    background-color: #ffc107;
+}
+
+@media screen and (max-width : 992px) {
+    .warningWrapper {
+        width: 75%;
+    }
+}
