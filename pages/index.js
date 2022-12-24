@@ -28,6 +28,6 @@ export async function getStaticProps() {
     props : {
       allSuggests
     },
-    revalidate : 5
+    revalidate : 1
   }
 }
