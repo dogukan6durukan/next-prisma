@@ -2,12 +2,11 @@ import { Wrapper } from "../components/utils/Wrapper";
 import { SuggestionForm } from "../components/SuggestionForm";
 import { SuggestList } from "../components/SuggestList";
 import { Warning } from "../components/utils/Warning";
-import { PrismaClient } from "@prisma/client"
 
 
-export default function Home({ req }) {
+export default function Home({ suggests }) {
   
-  console.log(req);
+  console.log(suggests);
 
   return (
     <>
@@ -20,15 +19,13 @@ export default function Home({ req }) {
 }
 
 export async function getStaticProps() {
-  const prisma = new PrismaClient();
-  const req = await prisma.suggest.findMany();
-
+  const req = await fetch("http://localhost:3000/api/getsuggests");
+  const suggests = await req.json();
 
   return {
     props : {
-      req
+      suggests
     },
-    revalidate: 10
+    revalidate : 5
   }
-  
 }
