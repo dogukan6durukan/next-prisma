@@ -18,7 +18,7 @@ export default function Home({ suggests }) {
 }
 
 export async function getStaticProps() {
-  const req = await fetch("http://localhost:300");
+  const req = await fetch("http://localhost:3000/api/getsuggests");
   const suggests = await req.json();
 
   return {
