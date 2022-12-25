@@ -6,7 +6,7 @@ export const SuggestList = (props) => {
         
         <div className={styles.suggestWrapper}>
 
-            <h2>Suggested framwork and languages by users.</h2>
+            <h2>Suggested List:</h2>
 
             {props.suggests.map((suggest) => (
                 <div key={suggest.id} className={styles.suggest}>

@@ -6,7 +6,7 @@ export const Navigation = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1>Framwork Suggestion</h1>
+      <h1>Language & Framework Suggestion</h1>
 
       <ul>
         {!user ? (

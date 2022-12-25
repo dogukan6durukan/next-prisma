@@ -6,6 +6,8 @@ import useSWR from "swr";
 
 export default function Home({ allSuggests }) {
   const { data, error } = useSWR("/api/getsuggests", fetcher);
+  data && data.reverse();
+
 
   return (
     <>
@@ -25,7 +27,7 @@ export default function Home({ allSuggests }) {
 
 const fetcher = async () => {
   const data = await fetch(
-    "https://next-prisma-blond.vercel.app/api/getsuggests"
+    "http://localhost:3000/api/getsuggests"
   );
   const result = await data.json();
   return result;
