@@ -2,32 +2,27 @@ import { Wrapper } from "../components/utils/Wrapper";
 import { SuggestionForm } from "../components/SuggestionForm";
 import { SuggestList } from "../components/SuggestList";
 import { Warning } from "../components/utils/Warning";
-import { PrismaClient } from "@prisma/client"
-
+import useSWR from 'swr';
 
 export default function Home({ allSuggests }) {
-  
-  console.log(allSuggests);
+
+  const { data, error } = useSWR('/api/getsuggests', fetcher);
+
+  if(!data) return 'Loading...';
 
   return (
     <>
       <Wrapper>
         <SuggestionForm />
-        {allSuggests.length > 0 ? <SuggestList suggests={allSuggests}/> : <Warning type="informative" text="There is no suggestion yet."/>}
+        {data.length > 0 ? <SuggestList suggests={data}/> : <Warning type="informative" text="There is no suggestion yet."/>}
       </Wrapper>
     </>
   );
 }
 
-export async function getStaticProps() {
-  const prisma = new PrismaClient();
-  const allSuggests = await prisma.suggest.findMany();
+const fetcher = async () => {
+  const data = await fetch('http://localhost:3000/api/getsuggests')
+  const result = await data.json();
+  return result;
 
-
-  return {
-    props : {
-      allSuggests
-    },
-    revalidate : 1
-  }
 }
