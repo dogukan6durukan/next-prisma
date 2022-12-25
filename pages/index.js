@@ -5,7 +5,7 @@ import { Warning } from "../components/utils/Warning";
 import useSWR from "swr";
 
 export default function Home({ allSuggests }) {
-  const { data, error } = useSWR("/api/getsuggests", fetcher);
+  const { data, error, isLoading } = useSWR("/api/getsuggests", fetcher);
   data && data.reverse();
 
 
@@ -13,7 +13,7 @@ export default function Home({ allSuggests }) {
     <>
       <Wrapper>
         <SuggestionForm />
-        {!data ? (
+        {isLoading ? (
           <p>Loading Suggests...</p>
         ) : data.length > 0 ? (
           <SuggestList suggests={data} />
