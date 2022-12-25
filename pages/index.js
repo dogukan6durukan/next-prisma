@@ -27,7 +27,7 @@ export default function Home({ allSuggests }) {
 
 const fetcher = async () => {
   const data = await fetch(
-    "http://localhost:3000/api/getsuggests"
+    "https://next-prisma-blond.vercel.app/"
   );
   const result = await data.json();
   return result;
