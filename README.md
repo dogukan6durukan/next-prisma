@@ -1,2 +1,2 @@
-# Prisma-PlanetScale-Next App
-This is the description
+# Framework Suggestion App
+This project includes Read and Write operations where authenicated users can create and read suggestions that is provided by Auth0 authenication system. Besides worked with Prisma ORM and providing structered schema for my Supabase MYSQL database. Also used Next JS's Client Side Navigation feature for navigate between blog posts without blocking user experience and pre render features provided by Next JS.
